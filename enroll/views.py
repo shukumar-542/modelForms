@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import studentRegistration
+from .models import User
 
 
 # Create your views here.
@@ -12,9 +13,9 @@ def showform(request):
                   nm =fm.cleaned_data['name']
                   em=fm.cleaned_data['email']
                   pas =fm.cleaned_data['password']
-                  print(nm)
-                  print(em)
-                  print(pas)
+                  reg = User(name=nm,email=em, password=pas)
+                  reg.save()
+
 
 
                 
